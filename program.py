@@ -7,12 +7,26 @@ def main():
 
 
 def print_header():
+
+    """
+    a command line header
+    :return: uhhhh....
+
+    """
     print('-----------------------------')
     print('        Journal App          ')
     print('-----------------------------')
 
 
 def run_event_loop():
+    """
+    main event loop for journal, most of the other functions run through this,
+    or are activated through another function call from this loop.
+    Small greeting, asks your name then hits the while loop and
+    prompts for option selection.
+    :return:
+
+    """
     print('What do you want to do with your Journal?')
     print("")
     cmd = "EMPTY"
@@ -35,6 +49,13 @@ def run_event_loop():
 
 
 def list_entries(data):
+    """
+
+    :param data: calls out to the load function from journal_data
+    when we get that back it gets listed
+    :return: output to screen of entries
+
+    """
     print("")
     print("Your journal entries: ")
     entries = reversed(data)
@@ -43,6 +64,12 @@ def list_entries(data):
 
 
 def add_entry(data):
+    """
+
+    :param data: calls out to add_entry in journal and adds your text string
+    :return: new entry to journal
+    
+    """
     print("")
     text = input('Type your entry, <enter> to exit: ')
     journal.add_entry(text, data)
