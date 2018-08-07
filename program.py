@@ -19,15 +19,15 @@ def run_event_loop():
     journal_name = input('Your name?: ')
     journal_data = journal.load(journal_name)
 
-    while cmd != 'x' and cmd:
+    while cmd != 'x' and cmd != 'exit':
         print("")
         cmd = input('[L]ist entries, [A]dd entries, E[x]it:  ').lower().strip()
 
-        if cmd == 'l':
+        if cmd == 'l' or cmd == 'list':
             list_entries(journal_data)
-        elif cmd == 'a':
+        elif cmd == 'a' or cmd == 'add':
             add_entry(journal_data)
-        elif cmd != 'x' and cmd:
+        elif cmd != 'x' and cmd != 'exit':
             print("Sorry, we don't understand '{}'.".format(cmd))
     print('In a galaxy far far away...')
 
