@@ -29,7 +29,7 @@ def run_event_loop():
             add_entry(journal_data)
         elif cmd != 'x' and cmd:
             print("Sorry, we don't understand '{}'.".format(cmd))
-    print('Bye.')
+    print('In a galaxy far far away...')
 
     journal.save(journal_name, journal_data)
 
