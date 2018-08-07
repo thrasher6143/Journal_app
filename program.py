@@ -38,7 +38,7 @@ def run_event_loop():
 
     while cmd != 'x' and cmd != 'exit':
         # print("")
-        cmd = input('[L]ist entries, [A]dd entries, E[x]it:  \n').lower().strip()
+        cmd = input('\n[L]ist entries, [A]dd entries, E[x]it:  \n').lower().strip()
 
         if cmd == 'l' or cmd == 'list':
             list_entries(journal_data)
