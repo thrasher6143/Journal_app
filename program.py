@@ -27,15 +27,18 @@ def run_event_loop():
     :return:
 
     """
-    print('What do you want to do with your Journal?')
-    print("")
+    journal_name = input('What is your name?: \n')
+    print("""Hello {}, how are you today?
+        You should write about it in your journal.""".format(journal_name))
+    print('\nWhat do you want to do? ')
+    # print("")
     cmd = "EMPTY"
-    journal_name = input('Your name?: ')
+
     journal_data = journal.load(journal_name)
 
     while cmd != 'x' and cmd != 'exit':
-        print("")
-        cmd = input('[L]ist entries, [A]dd entries, E[x]it:  ').lower().strip()
+        # print("")
+        cmd = input('[L]ist entries, [A]dd entries, E[x]it:  \n').lower().strip()
 
         if cmd == 'l' or cmd == 'list':
             list_entries(journal_data)
@@ -43,7 +46,7 @@ def run_event_loop():
             add_entry(journal_data)
         elif cmd != 'x' and cmd != 'exit':
             print("Sorry, we don't understand '{}'.".format(cmd))
-    print('In a galaxy far far away...')
+    print('In a galaxy far far away...\n')
 
     journal.save(journal_name, journal_data)
 
@@ -56,11 +59,12 @@ def list_entries(data):
     :return: output to screen of entries
 
     """
-    print("")
-    print("Your journal entries: ")
+    # print("")
+    print("\nYour journal entries are: \n")
     entries = reversed(data)
     for idx, entry in enumerate(entries):
         print('* [{}] {}'.format(idx + 1, entry))
+    # print('\n')
 
 
 def add_entry(data):
@@ -68,10 +72,10 @@ def add_entry(data):
 
     :param data: calls out to add_entry in journal and adds your text string
     :return: new entry to journal
-    
+
     """
-    print("")
-    text = input('Type your entry, <enter> to exit: ')
+    # print("")
+    text = input('\nType your entry, <enter> to exit: \n')
     journal.add_entry(text, data)
     # data.append(text)
 
